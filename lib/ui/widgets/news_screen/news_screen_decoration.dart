@@ -23,7 +23,7 @@ class NewsScreenDecoration {
     textStyle: const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w500,
-      color: Color(0xFF252627),
+      color: AppColors.postHeaderTextColor,
     ),
   );
 
@@ -31,7 +31,7 @@ class NewsScreenDecoration {
     textStyle: const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      color: Color(0xFF4D545C),
+      color: AppColors.mainTextColor,
     ),
   );
 

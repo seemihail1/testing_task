@@ -26,8 +26,7 @@ class _AuthScreenBody extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          decoration:
-              const BoxDecoration(gradient: AppColors.mainAppGradient),
+          decoration: const BoxDecoration(gradient: AppColors.mainAppGradient),
           child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: 16, vertical: size.height * 0.21),
@@ -66,7 +65,7 @@ class _AuthForm extends StatelessWidget {
               child: _PasswordTextField(),
             ),
             Flexible(
-              flex: 4,
+              flex: 5,
               child: _AuthButtonWidget(),
             ),
             Flexible(
@@ -167,32 +166,31 @@ class _PolicyAcceptionWidget extends StatelessWidget {
   const _PolicyAcceptionWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Регистрируясь вы принимаете наши условия:',
-            ),
-            const SizedBox(height: 3),
-            InkWell(
-              onTap: () {},
-              child: Text(
-                'политику использования данных',
-                style: AuthScreenDecoration.hyperlinkTextDecoration,
-              ),
-            ),
-            const SizedBox(height: 2),
-            InkWell(
-              onTap: () {},
-              child: Text(
-                'политику в отношении файлов cookie',
-                style: AuthScreenDecoration.hyperlinkTextDecoration,
-              ),
-            ),
-          ],
+        RichText(
+          text: TextSpan(
+              text: 'Регистрируясь вы принимаете наши условия: ',
+              style: AuthScreenDecoration.policyTextStyle),
+          maxLines: 2,
+        ),
+        const SizedBox(height: 3),
+        InkWell(
+          onTap: () {},
+          child: Text(
+            'политику использования данных',
+            style: AuthScreenDecoration.hyperlinkTextDecoration,
+          ),
+        ),
+        const SizedBox(height: 2),
+        InkWell(
+          onTap: () {},
+          child: Text(
+            'политику в отношении файлов cookie',
+            style: AuthScreenDecoration.hyperlinkTextDecoration,
+          ),
         ),
       ],
     );

@@ -16,7 +16,7 @@ class _NewsScreenWidgetState extends State<NewsScreenWidget> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => context.read<NewsScreenViewModel>().loadNews());
+    context.read<NewsScreenViewModel>().loadNews();
   }
 
   @override

@@ -25,14 +25,14 @@ class _IndexedStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _screenFactory = ScreenFactory();
-    final _model = context.read<MainScreenViewModel>();
+    final screenFactory = ScreenFactory();
+    final viewModel = context.read<MainScreenViewModel>();
 
     return Observer(
       builder: (_) => IndexedStack(
-        index: _model.selectedTab,
+        index: viewModel.selectedTab,
         children: [
-          _screenFactory.createNewsScreen(),
+          screenFactory.createNewsScreen(),
           const Center(child: Text('Health')),
           const Center(child: Text('Profile')),
           const Center(child: Text('Activity')),
@@ -50,20 +50,20 @@ class _BottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _model = context.read<MainScreenViewModel>();
+    final viewModel = context.read<MainScreenViewModel>();
 
     return Observer(
       builder: (_) => BottomNavigationBar(
         selectedItemColor: AppColors.redAccentColor,
-        currentIndex: _model.selectedTab,
+        currentIndex: viewModel.selectedTab,
         items: [
-         _model.createItem(imageName: AppImages.news, label: 'News'),
-          _model.createItem(imageName: AppImages.apple, label: 'Health'),
-          _model.createItem(imageName: AppImages.profile, label: 'Progile'),
-          _model.createItem(imageName: AppImages.dumbbell, label: 'Activity'),
-          _model.createItem(imageName: AppImages.map, label: 'Map'),
+         viewModel.createItem(imageName: AppImages.news, label: 'News'),
+          viewModel.createItem(imageName: AppImages.apple, label: 'Health'),
+          viewModel.createItem(imageName: AppImages.profile, label: 'Progile'),
+          viewModel.createItem(imageName: AppImages.dumbbell, label: 'Activity'),
+          viewModel.createItem(imageName: AppImages.map, label: 'Map'),
         ],
-        onTap: _model.onSelectedTab,
+        onTap: viewModel.onSelectedTab,
       ),
     );
   }

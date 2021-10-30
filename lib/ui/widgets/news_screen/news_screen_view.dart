@@ -60,10 +60,10 @@ class _NewsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = context.read<NewsScreenViewModel>();
+    final viewModel = context.read<NewsScreenViewModel>();
     return Observer(
       builder: (context) => ListView.builder(
-          itemCount: model.posts.length,
+          itemCount: viewModel.posts.length,
           itemBuilder: (BuildContext context, int index) {
             return _NewsCardWidget(index: index);
           }),

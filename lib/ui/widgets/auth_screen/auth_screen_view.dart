@@ -106,7 +106,7 @@ class _PasswordTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<AuthScreenViewModel>();
+    final viewModel = context.read<AuthScreenViewModel>();
     return Observer(
       builder: (_) => TextField(
         onChanged: (value) {
@@ -131,7 +131,7 @@ class _AuthButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<AuthScreenViewModel>();
+    final viewModel = context.read<AuthScreenViewModel>();
     return Observer(
       builder: (_) => Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
